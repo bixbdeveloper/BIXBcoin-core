@@ -435,7 +435,7 @@ void BlockAssembler::addPackageTxs(int &nPackagesSelected, int &nDescendantsUpda
 
         ++nPackagesSelected;
 
-        // Update transactions that depend on each of these
+        // Update transactions that depend on each of these.
         nDescendantsUpdated += UpdatePackagesForAdded(ancestors, mapModifiedTx);
     }
 }
