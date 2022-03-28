@@ -2,6 +2,22 @@ UNIX BUILD NOTES
 ====================
 Some notes on how to build Bixbcoin Core in Unix.
 
+Optional, install BerkeleyDB for wallet support.
+# Download and untar the package
+wget http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz
+tar -xvf db-4.8.30.NC.tar.gz
+# fix the bug on BerkeleyDB
+sed -i 's/__atomic_compare_exchange/__atomic_compare_exchange_db/g' db-4.8.30.NC/dbinc/atomic.h
+# Configure
+cd db-4.8.30.NC/build_unix
+mkdir -p build
+BDB_PREFIX=$(pwd)/build  # we will use this shell variable later
+../dist/configure --disable-shared --enable-cxx --with-pic --prefix=$BDB_PREFIX
+# Compile and install
+make
+sudo make install
+
+
 (for OpenBSD specific instructions, see [build-openbsd.md](build-openbsd.md))
 
 Note
