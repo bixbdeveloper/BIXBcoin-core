@@ -328,6 +328,11 @@ To build executables for ARM:
 
 For further documentation on the depends system see [README.md](../depends/README.md) in the depends directory.
 
+After installing, you are ready to run bitcoin daemon and check the status with bixbcoin-cli.
+# start the bixbcoin daemon in daemon mode :-)
+bitcoind -daemon
+
+
 Building on FreeBSD
 --------------------
 
